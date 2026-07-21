@@ -41,9 +41,9 @@ class WalkState(_BaseState):
         host.x += host.cfg.WALK_SPEED * host.direction
         host.clamp_x()
 
-        if host.x <= 0:
+        if host.x <= host.work_left:
             host.direction = 1
-        elif host.x >= host.screen_w - host.cfg.DISP_W:
+        elif host.x >= host.work_right - host.cfg.DISP_W:
             host.direction = -1
 
         self._timer -= 1
